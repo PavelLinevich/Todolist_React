@@ -63,6 +63,7 @@ export function Todolist(props: PropsType) {
             return (
               <li
                 key={t.id}
+                style={{ listStyleType: "none" }}
                 className={t.isDone ? 'is-done' : ''}>
                 <Checkbox
                   checked={t.isDone}
