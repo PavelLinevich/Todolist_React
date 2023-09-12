@@ -105,35 +105,36 @@ function App() {
 
   return (
     <div className="App">
-      <AddItemForm addItem={addTodolist} />
-      {
-        todolists.map((tl) => {
-          let taskForTodolist = tasksObj[tl.id];
-          if (tl.filter === 'completed') {
-            taskForTodolist = taskForTodolist.filter(t => t.isDone === true)
-          }
-          if (tl.filter === 'active') {
-            taskForTodolist = taskForTodolist.filter(t => t.isDone === false)
-          }
-          return (
-            <Todolist
-              key={tl.id}
-              id={tl.id}
-              title={tl.title}
-              tasks={taskForTodolist}
-              removeTask={removeTask}
-              changeFilter={changeFilter}
-              addTask={addTask}
-              changeStatus={changeStatus}
-              changeTitle={changeTitle}
-              filter={tl.filter}
-              removeTodolist={removeTodolist}
-              changeTodolistTitle={changeTodolistTitle}
-            />
-          )
-        })
-      }
-
+      <AddItemForm addItem={addTodolist}/>
+      <div className='todolistWrapper'>
+        {
+          todolists.map((tl) => {
+            let taskForTodolist = tasksObj[tl.id];
+            if (tl.filter === 'completed') {
+              taskForTodolist = taskForTodolist.filter(t => t.isDone === true)
+            }
+            if (tl.filter === 'active') {
+              taskForTodolist = taskForTodolist.filter(t => t.isDone === false)
+            }
+            return (
+              <Todolist
+                key={tl.id}
+                id={tl.id}
+                title={tl.title}
+                tasks={taskForTodolist}
+                removeTask={removeTask}
+                changeFilter={changeFilter}
+                addTask={addTask}
+                changeStatus={changeStatus}
+                changeTitle={changeTitle}
+                filter={tl.filter}
+                removeTodolist={removeTodolist}
+                changeTodolistTitle={changeTodolistTitle}
+              />
+            )
+          })
+        }
+      </div>
     </div>
   );
 }

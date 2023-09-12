@@ -1,10 +1,29 @@
 .App {
   display: flex;
+  flex-direction: column;
   padding: 30px;
 }
 
 .App>div {
   margin-right: 50px;
+}
+
+.todolistWrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 4rem;
+  gap: 4rem;
+}
+
+.todolist {
+  border: 1px solid grey;
+  padding: 2rem;
+  height: min-content;
+
+  & h3 {
+    margin: 0;
+  }
 }
 
 .error {
@@ -21,4 +40,10 @@
 
 .is-done {
   opacity: 0.5;
+}
+
+.addItemForm {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
